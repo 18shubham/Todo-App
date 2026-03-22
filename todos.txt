@@ -1,2 +1,5 @@
 Buy groceries
 Read a book
+Walk the dog
+Exercise for 30 minutes
+Learn Git branching
