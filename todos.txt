@@ -5,5 +5,3 @@ Exercise for 30 minutes
 Learn Git branching
 URGENT: Pay bills
 URGENT: Call doctor
-bad feature
-bad feature
