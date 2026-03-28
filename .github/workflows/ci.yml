@@ -1,0 +1,32 @@
+name: CI Pipeline
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Check todos file exists
+        run: test -f todos.txt && echo "todos.txt exists" || exit 1
+
+      - name: Count todos
+        run: |
+          count=$(wc -l < todos.txt)
+          echo "You have $count todos"
+
+      - name: Check no secrets committed
+        run: |
+          if grep -r "SECRET\|PASSWORD\|API_KEY" --include="*.txt" .; then
+            echo "Secrets found! Failing build."
+            exit 1
+          else
+            echo "No secrets found. Safe to deploy."
+          fi
