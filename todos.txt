@@ -5,3 +5,4 @@ Exercise for 30 minutes
 Learn Git branching
 URGENT: Pay bills
 Cherry 1
+Category: Shopping
